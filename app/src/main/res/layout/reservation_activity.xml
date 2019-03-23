@@ -13,38 +13,82 @@
         android:layout_height="match_parent">
 
         <fragment
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".MainActivity">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
-            <LinearLayout
+            <android.support.v7.widget.CardView
+                android:id="@+id/cv_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:visibility="gone"
+                app:cardElevation="16dp">
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/cv_search"
-                    android:visibility="gone"
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    app:cardElevation="16dp">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
+                    <!--Location-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!--Date-->
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_location_on_black_24dp" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/get_current_location"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="16sp" />
+
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="0.5dp"
+                                android:background="@color/colorGrey" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                        android:orientation="vertical">
 
-                        <!--Location-->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
                             android:orientation="horizontal">
 
                             <!--Date-->
@@ -52,20 +96,21 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_location_on_black_24dp" />
+                                android:src="@drawable/ic_date_range_black_24dp" />
 
                             <LinearLayout
-                                android:id="@+id/ll_location"
-                                android:layout_width="match_parent"
+                                android:id="@+id/ll_date"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/tv_location"
+                                    android:id="@+id/tv_date"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="8dp"
-                                    android:text="@string/get_current_location"
+                                    android:text="@string/date"
                                     android:textColor="@color/colorGrey"
                                     android:textSize="16sp" />
 
@@ -76,156 +121,118 @@
                             </LinearLayout>
 
 
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <LinearLayout
+                            <!--Time-->
+                            <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginBottom="16dp"
-                                android:orientation="horizontal">
-
-                                <!--Date-->
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/ic_date_range_black_24dp" />
-
-                                <LinearLayout
-                                    android:id="@+id/ll_date"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/tv_date"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="8dp"
-                                        android:text="@string/date"
-                                        android:textColor="@color/colorGrey"
-                                        android:textSize="16sp" />
-
-                                    <View
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="0.5dp"
-                                        android:background="@color/colorGrey" />
-                                </LinearLayout>
-
-
-                                <!--Time-->
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/ic_access_time_black_24dp" />
-
-                                <LinearLayout
-                                    android:id="@+id/ll_time"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/tv_max_time"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="8dp"
-                                        android:text="@string/time"
-                                        android:textColor="@color/colorGrey"
-                                        android:textSize="16sp" />
-
-                                    <View
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="0.5dp"
-                                        android:background="@color/colorGrey" />
-
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <!--SeekBar-->
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_access_time_black_24dp" />
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:id="@+id/ll_time"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="12dp"
-                                android:layout_marginEnd="14dp"
-                                android:orientation="horizontal">
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/tv_max_time"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginEnd="8dp"
-                                    android:text="@string/reserve_for"
+                                    android:layout_margin="8dp"
+                                    android:text="@string/time"
                                     android:textColor="@color/colorGrey"
                                     android:textSize="16sp" />
 
-                                <TextView
-                                    android:id="@+id/tv_reserve_time"
+                                <View
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="45 min"
-                                    android:textColor="@color/colorGrey"
-                                    android:textSize="16sp" />
-
-                                <TextView
-                                    android:id="@+id/tv_reserve_remaining"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="end"
-                                    android:text=" -- min"
-                                    android:textColor="@color/colorGrey"
-                                    android:textSize="16sp" />
+                                    android:layout_height="0.5dp"
+                                    android:background="@color/colorGrey" />
 
                             </LinearLayout>
+                        </LinearLayout>
 
-                            <SeekBar
-                                android:id="@+id/sb_time"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="16dp" />
+                        <!--SeekBar-->
 
-                            <Button
-                                android:id="@+id/btn_search"
-                                android:layout_width="100dp"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="14dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginBottom="8dp"
-                                android:background="@drawable/button_background"
-                                android:text="@string/search"
-                                android:textAllCaps="false"
-                                android:textColor="@color/colorWhite"
+                                android:layout_marginEnd="8dp"
+                                android:text="@string/reserve_for"
+                                android:textColor="@color/colorGrey"
                                 android:textSize="16sp" />
 
+                            <TextView
+                                android:id="@+id/tv_reserve_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="45 min"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/tv_reserve_remaining"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:text=" -- min"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="16sp" />
 
                         </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/sb_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp" />
+
+                        <Button
+                            android:id="@+id/btn_search"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/button_background"
+                            android:text="@string/search"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="16sp" />
+
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
+                </LinearLayout>
 
-                <ImageButton
-                    android:foregroundGravity="center"
-                    android:id="@+id/btn_search_down"
-                    android:layout_width="57dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/half_circle_filled"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_search_black_24dp" />
-            </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-        </fragment>
+            <ImageButton
+                android:id="@+id/btn_search_down"
+                android:layout_width="57dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/half_circle_filled"
+                android:foregroundGravity="center"
+                android:padding="8dp"
+                android:src="@drawable/ic_search_black_24dp" />
+        </LinearLayout>
 
-    </FrameLayout>
-</LinearLayout>
+        <ProgressBar
+            android:indeterminateDrawable="@drawable/progress"
+            android:visibility="gone"
+            android:id="@+id/pb"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center" />
+    </fragment>
+
+</FrameLayout></LinearLayout>
 

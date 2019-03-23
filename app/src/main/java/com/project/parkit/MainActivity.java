@@ -31,6 +31,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -46,6 +47,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.project.parkit.common.ConnectionDetector;
 import com.project.parkit.common.SetupRetrofit;
 
 import java.text.SimpleDateFormat;
@@ -97,6 +99,8 @@ public class MainActivity extends FragmentActivity implements
     LinearLayout llDate;
     @BindView(R.id.ll_time)
     LinearLayout llTime;
+    @BindView(R.id.pb)
+    ProgressBar progressBar;
     List<ParkingModel> parkingModelList;
 
 
@@ -109,6 +113,7 @@ public class MainActivity extends FragmentActivity implements
     private String reserveTime, reserveDate;
     private DatePickerDialog.OnDateSetListener date;
     private static final String TAG = MainActivity.class.getName();
+    ConnectionDetector connectionDetector;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -119,6 +124,9 @@ public class MainActivity extends FragmentActivity implements
         calendar = Calendar.getInstance();
         notificationBarSetup();
         datePickerAction();
+
+        connectionDetector = new ConnectionDetector(this);
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
 
@@ -189,7 +197,7 @@ public class MainActivity extends FragmentActivity implements
         }
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
                 0, 0, this);
-
+        onLocationChanged(location);
     }
 
     @Override
@@ -350,22 +358,13 @@ public class MainActivity extends FragmentActivity implements
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_location:
-                if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                    buildAlertMessageNoGps();
-                } else {
-                    onLocationChanged(location);
-                    tvLocation.setText("Lat: " + location.getLatitude() + "\n" + "Lng: " + location.getLongitude());
-                    userLocation = new LatLng(location.getLatitude(), location.getLongitude());
 
-                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(userLocation, 18);
-
-                    mMap.addMarker(new MarkerOptions()
-                            .position(userLocation)
-                            .title("Current Position")
-                            .icon(bitmapDescriptorFromVector(this, R.drawable.ic_person_black_24dp))
-                    );
-                    mMap.moveCamera(cameraUpdate);
+                if (!connectionDetector.isConnected()) {
+                    noInternetDialog();
+                }else {
+                    searchAction();
                 }
+
                 break;
             case R.id.ll_date:
                 new DatePickerDialog(MainActivity.this, date, calendar
@@ -391,8 +390,49 @@ public class MainActivity extends FragmentActivity implements
         }
     }
 
+    private void noInternetDialog() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle(R.string.no_internet_connection)
+                .setMessage(R.string.internet_msg)
+                .setPositiveButton(R.string.retry, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (connectionDetector.isConnected()) {
+                        }
+                    }
+                }).setNegativeButton(R.string.close_all_caps, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        }).setCancelable(false).show();
+    }
+
+
+    private void searchAction() {
+        progressBar.setVisibility(View.VISIBLE);
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            buildAlertMessageNoGps();
+        } else {
+            onLocationChanged(location);
+            tvLocation.setText("Lat: " + location.getLatitude() + "\n" + "Lng: " + location.getLongitude());
+            userLocation = new LatLng(location.getLatitude(), location.getLongitude());
+
+            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(userLocation, 18);
+
+            mMap.addMarker(new MarkerOptions()
+                    .position(userLocation)
+                    .title("Current Position")
+                    .icon(bitmapDescriptorFromVector(this, R.drawable.ic_person_black_24dp))
+            );
+            mMap.moveCamera(cameraUpdate);
+        }
+        progressBar.setVisibility(View.GONE);
+
+    }
+
 
     private void getSearchData() {
+        progressBar.setVisibility(View.VISIBLE);
+
         SetupRetrofit setupRetrofit = new SetupRetrofit();
         Retrofit retrofit = setupRetrofit.getRetrofit();
 
@@ -429,17 +469,18 @@ public class MainActivity extends FragmentActivity implements
                     MyInfoWindowAdapter customInfoWindow = new
                             MyInfoWindowAdapter(MainActivity.this, parkingModelList);
                     mMap.setInfoWindowAdapter(customInfoWindow);
-
+                    progressBar.setVisibility(View.GONE);
                 }
-
-
 
             }
 
             @Override
             public void onFailure(Call<List<ParkingModel>> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage());
+
                 Toast.makeText(MainActivity.this, "Sth wrong", Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
+
 
             }
         });
