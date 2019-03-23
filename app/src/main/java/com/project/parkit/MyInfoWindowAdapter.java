@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -22,41 +24,59 @@ class MyInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
     @BindView(R.id.tv_subtitle)
     TextView tvSubtitle;
     @BindView(R.id.tv_haha)
-    TextView tvHaha;
-    @BindView(R.id.tv_time)
-    TextView tvTime;
-    @BindView(R.id.tv_xx)
-    TextView tvXx;
+    TextView tvCost;
+    @BindView(R.id.tv_max_time)
+    TextView tvMaxTime;
+    @BindView(R.id.tv_min_time)
+    TextView tvMinTime;
     @BindView(R.id.btn_pay_reserve)
     Button btnPayReserve;
     private static final String TAG = MyInfoWindowAdapter.class.getName();
 
-    public MyInfoWindowAdapter(Context context) {
-        context = context;
-        mWindow = LayoutInflater.from(context).inflate(R.layout.custom_info_window, null);
-        ButterKnife.bind(this, mWindow);
+    List<ParkingModel> parkingModelList;
+    ParkingModel parkingModel;
+
+    public MyInfoWindowAdapter(Context context, List<ParkingModel> parkingModelList) {
+        this.context = context;
+        this.parkingModelList = parkingModelList;
 
     }
 
     @Override
     public View getInfoWindow(Marker marker) {
+        mWindow = LayoutInflater.from(context).inflate(R.layout.custom_info_window, null);
+        ButterKnife.bind(this, mWindow);
 
-        tvTitle.setText(marker.getTitle());
+
         tvSubtitle.setText(marker.getSnippet());
 
-        ParkingModel infoWindowData = (ParkingModel) marker.getTag();
+
+        //ParkingModel infoWindowData = (ParkingModel) marker.getTag();
 
 
-//        tvHaha.setText(infoWindowData.getCostPerMinute() + "");
-//        tvTime.setText(infoWindowData.getMaxReserveTimeMins());
-//        tvXx.setText(infoWindowData.getMinReserveTimeMins());
+        for (int i = 0; i < parkingModelList.size(); i++) {
 
-//        Log.d(TAG, "getInfoWindow: " + infoWindowData.getMaxReserveTimeMins());
+            parkingModel = parkingModelList.get(5);
+            tvTitle.setText(parkingModel.getName());
+            tvCost.setText   (parkingModel.getCostPerMinute() + "");
+            tvMaxTime.setText(parkingModel.getMaxReserveTimeMins()+"");
+            tvMinTime.setText(parkingModel.getMinReserveTimeMins()+"");
+            Log.d(TAG, "getInfoWindow: " + parkingModel.getName());
+
+        }
+
+
+        btnPayReserve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         return mWindow;
     }
 
     @Override
     public View getInfoContents(Marker marker) {
-        return mWindow;
+        return null;
     }
 }
