@@ -21,4 +21,7 @@
     <string name="domain">"http://ridecellparking.herokuapp.com/api/v1/parkinglocations/"</string>
 
     <string name="get_current_location">Get Current Location</string>
+    <string name="cost_min">Cost/min</string>
+    <string name="min_time">Min </string>
+    <string name="max_time">Max </string>
 </resources>

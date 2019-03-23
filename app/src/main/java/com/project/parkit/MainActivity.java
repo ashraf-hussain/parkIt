@@ -11,7 +11,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -28,35 +27,28 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.LocationSource;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.project.parkit.common.SetupRetrofit;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -83,7 +75,7 @@ public class MainActivity extends FragmentActivity implements
     Toolbar toolbar;
     @BindView(R.id.tv_location)
     TextView tvLocation;
-    @BindView(R.id.tv_time)
+    @BindView(R.id.tv_max_time)
     TextView tvTime;
     @BindView(R.id.tv_reserve_time)
     TextView tvReserveTime;
@@ -125,7 +117,6 @@ public class MainActivity extends FragmentActivity implements
         setContentView(R.layout.reservation_activity);
         ButterKnife.bind(this);
         calendar = Calendar.getInstance();
-
         notificationBarSetup();
         datePickerAction();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -159,25 +150,27 @@ public class MainActivity extends FragmentActivity implements
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        ;
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
         mMap.getUiSettings().setAllGesturesEnabled(true);
         mMap.setTrafficEnabled(true);
-        mMap.setMinZoomPreference(1);
+        mMap.setMinZoomPreference(5);
 
     }
 
     protected Marker createMarker(double latitude,
                                   double longitude,
+                                  String title,
+                                  int minTime,
+                                  int maxTime,
+                                  String costPerMin,
                                   int iconResID) {
 
         return mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude, longitude))
                 .anchor(0.5f, 0.5f)
-                .title("Hello")
-                .snippet("Whats up")
+                .title(title)
                 .icon(bitmapDescriptorFromVector(this,
                         iconResID)));
     }
@@ -364,7 +357,7 @@ public class MainActivity extends FragmentActivity implements
                     tvLocation.setText("Lat: " + location.getLatitude() + "\n" + "Lng: " + location.getLongitude());
                     userLocation = new LatLng(location.getLatitude(), location.getLongitude());
 
-                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(userLocation, 15);
+                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(userLocation, 18);
 
                     mMap.addMarker(new MarkerOptions()
                             .position(userLocation)
@@ -418,22 +411,28 @@ public class MainActivity extends FragmentActivity implements
                 Log.d(TAG, String.valueOf(parkingModelList.size()));
 
                 for (int i = 0; i < parkingModelList.size(); i++) {
+                    parkingModel = new ParkingModel();
 
                     createMarker(Double.parseDouble(parkingModelList.get(i).getLat()),
                             Double.parseDouble(parkingModelList.get(i).getLng()),
+                            parkingModelList.get(i).getName(),
+                            parkingModelList.get(i).getMinReserveTimeMins(),
+                            parkingModelList.get(i).getMaxReserveTimeMins(),
+                            parkingModelList.get(i).getCostPerMinute(),
                             R.drawable.ic_radio_button_checked_black_24dp);
 
-//                    Log.d(TAG, parkingModelList.get(i).getLat() + "done" +
-//                            parkingModelList.get(i).getLng());
+                    parkingModel.setName("sadas");
 
-                    parkingModel = new ParkingModel();
-                    parkingModel.setMaxReserveTimeMins(parkingModelList.get(i).getMaxReserveTimeMins());
-                    parkingModel.setMinReserveTimeMins(parkingModelList.get(i).getMinReserveTimeMins());
-                    parkingModel.setCostPerMinute(parkingModelList.get(i).getCostPerMinute());
 
-                    MyInfoWindowAdapter customInfoWindow = new MyInfoWindowAdapter(MainActivity.this);
+                    Log.d(TAG, parkingModelList.get(i).getCostPerMinute() + "GOT" +
+                            parkingModelList.get(i).getName());
+                    MyInfoWindowAdapter customInfoWindow = new
+                            MyInfoWindowAdapter(MainActivity.this, parkingModelList);
                     mMap.setInfoWindowAdapter(customInfoWindow);
+
                 }
+
+
 
             }
 

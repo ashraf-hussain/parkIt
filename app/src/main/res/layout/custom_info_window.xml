@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
@@ -22,18 +23,17 @@
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="East Lake Parking"
+                android:layout_marginBottom="16dp"
                 android:textColor="@color/colorWhite"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tv_subtitle"
+                android:layout_marginBottom="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="We forgot the station today"
                 android:textColor="@color/colorWhite"
                 android:textSize="16sp" />
 
@@ -60,7 +60,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="HAhah"
+                        android:text="@string/cost_min"
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp" />
 
@@ -70,7 +70,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layout_marginBottom="8dp"
-                        android:text="2wwe"
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp" />
 
@@ -87,16 +86,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="Time"
+                        android:text="@string/min_time"
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/tv_time"
+                        android:id="@+id/tv_min_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="22 mins"
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp" />
 
@@ -112,16 +110,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="xxx"
+                        android:text="@string/max_time"
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/tv_xx"
+                        android:id="@+id/tv_max_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="05 xxx"
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp" />
 
