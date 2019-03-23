@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Park It</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="location">Location</string>
+    <string name="date">Date</string>
+    <string name="reserve_for">Reserve for :</string>
+    <string name="search">Search</string>
+    <string name="time">Time</string>
+    <string name="parking">Parking Station</string>
+    <string name="pay_and_reserve">Pay and Reserve</string>
+    <string name="more">More</string>
+    <string name="great">Great!</string>
+    <string name="your_reservation_has_been_confirmed">Your reservation has been "\n" confirmed.</string>
+    <string name="check">Check</string>
+    <string name="close">Close</string>
+    <string name="domain">"http://ridecellparking.herokuapp.com/api/v1/parkinglocations/"</string>
+
+    <string name="get_current_location">Get Current Location</string>
+</resources>
