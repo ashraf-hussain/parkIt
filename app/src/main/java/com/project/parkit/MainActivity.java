@@ -322,8 +322,19 @@ public class MainActivity extends FragmentActivity implements
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay,
                                           int minute) {
+                        String time;
+                        if (hourOfDay >= 0 && hourOfDay < 12) {
+                            time = hourOfDay + " : " + minute + " AM";
+                        } else {
+                            if (hourOfDay == 12) {
+                                time = hourOfDay + " : " + minute + " PM";
+                            } else {
+                                hourOfDay = hourOfDay - 12;
+                                time = hourOfDay + " : " + minute + " PM";
+                            }
+                        }
 
-                        tvTime.setText(hourOfDay + ":" + minute);
+                        tvTime.setText(time);
                     }
                 }, mHour, mMinute, false);
         timePickerDialog.show();
@@ -442,7 +453,7 @@ public class MainActivity extends FragmentActivity implements
                     .title("Current Position")
                     .icon(bitmapDescriptorFromVector(this, R.drawable.ic_person_black_24dp))
             );
-            mMap.moveCamera(cameraUpdate);
+            mMap.animateCamera(cameraUpdate);
         }
         progressBar.setVisibility(View.GONE);
 
@@ -512,7 +523,7 @@ public class MainActivity extends FragmentActivity implements
         Toast.makeText(this, "Info window clicked",
                 Toast.LENGTH_SHORT).show();
 
-        ReservationBody reservationBody = new ReservationBody(15);
+        ReservationBody reservationBody = new ReservationBody(30);
 
         Toast.makeText(this, (int) marker.getZIndex() + "", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onInfoWindowClick: " + marker.getZIndex() + "");
@@ -521,7 +532,7 @@ public class MainActivity extends FragmentActivity implements
 
     }
 
-    private void reserveSpot(ReservationBody reservationBody, int markerId) {
+    private void reserveSpot(final ReservationBody reservationBody, final int markerId) {
         progressBar.setVisibility(View.VISIBLE);
 
         SetupRetrofit setupRetrofit = new SetupRetrofit();
@@ -536,11 +547,13 @@ public class MainActivity extends FragmentActivity implements
                 progressBar.setVisibility(View.GONE);
 
                 if (response.code() == 200) {
-
+                    showSuccessDialog(markerId);
                 }
                 if (response.code() == 400) {
 
-                    Toast.makeText(MainActivity.this, "Minimum time is more the reservation", Toast.LENGTH_SHORT).show();
+
+                    // Toast.makeText(MainActivity.this, "Minimum time is more the reservation", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Location already reserved. Please try later.", Toast.LENGTH_SHORT).show();
 
                 }
                 if (response.code() == 404) {
@@ -572,18 +585,22 @@ public class MainActivity extends FragmentActivity implements
 
         Button btnCheck = (Button) dialog.findViewById(R.id.btn_check);
 
-        Button btnClose = (Button) dialog.findViewById(R.id.btn_close);
+        TextView btnClose = (TextView) dialog.findViewById(R.id.btn_close);
 
-        btnClose.setOnClickListener(new View.OnClickListener() {
+        btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Bundle bundle = new Bundle();
                 Intent intent = new Intent(MainActivity.this, ReservationDetailActivity.class);
-                intent.putExtra(AppConstant.RESERVATION_DETAIL, id);
+                bundle.putInt(AppConstant.RESERVATION_DETAIL, id);
+                Log.d(TAG, "onClick: " + id + "");
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
 
-        btnCheck.setOnClickListener(new View.OnClickListener() {
+        btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();

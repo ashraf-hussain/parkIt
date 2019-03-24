@@ -15,21 +15,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/MapWrapperLayout.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/MyInfoWindowAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/MyInfoWindowAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/OnInfoWindowElemTouchListener.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ParkingApiInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ParkingApiInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/PlaceAutocompleteAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/common/AppConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/common/AppConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/half_circle_filled.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/half_circle_filled.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search_black_24dp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search_black_24dp.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_info_window.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_info_window.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_reservation_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_reservation_detail.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_success_message.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_success_message.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/reservation_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/reservation_activity.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,40 +42,41 @@
     <session id="-518226990">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="12" />
-          <entry key="xml" value="16" />
+          <entry key="java" value="21" />
+          <entry key="xml" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="12" />
-          <entry key="XML" value="16" />
+          <entry key="JAVA" value="21" />
+          <entry key="XML" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2534" />
-          <entry key="xml" value="1017" />
+          <entry key="java" value="3201" />
+          <entry key="xml" value="1286" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2534" />
-          <entry key="XML" value="1017" />
+          <entry key="JAVA" value="3201" />
+          <entry key="XML" value="1286" />
         </counts>
       </usages-collector>
     </session>
@@ -92,77 +86,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="125" column="47" selection-start-line="125" selection-start-column="47" selection-end-line="125" selection-end-column="47" />
+            <state relative-caret-position="556">
+              <caret line="335" selection-start-line="335" selection-end-line="335" />
               <folding>
-                <element signature="e#11067#11679#0" />
-                <element signature="e#11685#11802#0" />
-                <element signature="e#11808#12804#0" />
-                <element signature="e#11971#12302#0" expanded="true" />
-                <element signature="e#12301#12302#0" expanded="true" />
-                <element signature="e#12345#12579#0" expanded="true" />
-                <element signature="e#12578#12579#0" expanded="true" />
-                <element signature="e#12810#13572#0" />
-                <element signature="e#13578#13672#0" />
-                <element signature="e#13678#13747#0" />
-                <element signature="e#13753#13823#0" />
-                <element signature="e#13829#14344#0" />
-                <element signature="e#14350#14926#0" />
-                <element signature="e#14932#15648#0" />
-                <element signature="e#15131#15441#0" expanded="true" />
-                <element signature="e#15440#15441#0" expanded="true" />
-                <element signature="e#15654#16403#0" />
-                <element signature="e#16409#17372#0" />
-                <element signature="e#17379#18685#0" />
-                <element signature="e#18691#19461#0" />
-                <element signature="e#18698#18729#0" expanded="true" />
-                <element signature="e#18759#18780#0" expanded="true" />
-                <element signature="e#18817#18831#0" expanded="true" />
-                <element signature="e#18833#19079#0" expanded="true" />
-                <element signature="e#19078#19079#0" expanded="true" />
-                <element signature="e#19099#19122#0" expanded="true" />
-                <element signature="e#19124#19282#0" expanded="true" />
-                <element signature="e#19281#19282#0" expanded="true" />
-                <element signature="e#19468#20366#0" />
-                <element signature="e#21294#21474#0" expanded="true" />
-                <element signature="e#21473#21474#0" expanded="true" />
-                <element signature="e#21492#21642#0" expanded="true" />
-                <element signature="e#21641#21642#0" expanded="true" />
+                <element signature="e#11153#11463#0" expanded="true" />
+                <element signature="e#11462#11463#0" expanded="true" />
+                <element signature="e#16295#18901#0" />
+                <element signature="e#21750#21900#0" expanded="true" />
+                <element signature="e#21899#21900#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/reservation_activity.xml">
-          <provider editor-type-id="android-designer2" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+            <state relative-caret-position="450">
+              <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
             </state>
           </provider>
+          <provider editor-type-id="android-manifest" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+            <state relative-caret-position="371">
+              <caret line="147" column="33" selection-start-line="147" selection-start-column="33" selection-end-line="147" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#183#184#0" expanded="true" />
-                <element signature="e#207#208#0" expanded="true" />
+                <element signature="e#1794#1795#0" expanded="true" />
+                <element signature="e#1853#1854#0" expanded="true" />
+                <element signature="e#7556#7706#0" expanded="true" />
+                <element signature="e#7705#7706#0" expanded="true" />
+                <element signature="e#7737#8050#0" expanded="true" />
+                <element signature="e#8049#8050#0" expanded="true" />
+                <element signature="method#notificationBarSetup#0;class#ReservationDetailActivity#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_info_window.xml">
-          <provider editor-type-id="android-designer2" />
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ParkingApiInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+            <state relative-caret-position="195">
+              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -171,63 +141,21 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_reservation_detail.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1534">
-              <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+            <state relative-caret-position="105">
+              <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
               <folding>
-                <element signature="e#2187#2207#0" expanded="true" />
-                <element signature="e#3149#3163#0" expanded="true" />
-                <element signature="e#4017#4035#0" expanded="true" />
-                <element signature="e#4836#4850#0" expanded="true" />
-                <element signature="e#6079#6093#0" expanded="true" />
-                <element signature="e#7005#7026#0" expanded="true" />
-                <element signature="e#8934#8958#0" expanded="true" />
+                <element signature="e#12091#12115#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_success_message.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_with_back_btn.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/half_circle_filled.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/common/SetupRetrofit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/common/AppConstant.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+            <state relative-caret-position="90">
+              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -249,6 +177,9 @@
       <find>Marker</find>
       <find>latitude</find>
       <find>asdf</find>
+      <find>notifi</find>
+      <find>time</find>
+      <find>timePi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -271,22 +202,26 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_infowindow.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationBody.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/MyInfoWindowAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ParkingApiInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/common/AppConstant.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_reservation_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_info_window.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_success_message.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/half_circle_filled.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/reservation_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_success_message.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar_with_back_btn.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_reservation_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ParkingApiInterface.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="x" value="846" />
+    <option name="y" value="23" />
     <option name="width" value="834" />
-    <option name="height" value="1050" />
+    <option name="height" value="966" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -296,15 +231,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="parkIt" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="parkIt" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
             </path>
             <path>
               <item name="parkIt" type="1abcf292:AndroidViewProjectNode" />
@@ -348,10 +285,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="info&#9;FILE&#9;file:///Users/ashraf/Documents/parkIt/app/src/main/res/layout/custom_infowindow.xml&#10;mess&#9;FILE&#9;file:///Users/ashraf/Documents/parkIt/app/src/main/res/layout/dialog_success_message.xml&#10;st&#9;FILE&#9;file:///Users/ashraf/Documents/parkIt/app/src/main/res/values/strings.xml" />
+    <property name="SearchEverywhereHistoryKey" value="re&#9;FILE&#9;file:///Users/ashraf/Documents/parkIt/app/src/main/res/layout/reservation_activity.xml&#10;Reservation&#9;FILE&#9;file:///Users/ashraf/Documents/parkIt/app/src/main/java/com/project/parkit/ReservationDetailActivity.java&#10;dI&#9;FILE&#9;file:///Users/ashraf/Documents/parkIt/app/src/main/res/layout/dialog_success_message.xml&#10;info&#9;FILE&#9;file:///Users/ashraf/Documents/parkIt/app/src/main/res/layout/custom_infowindow.xml&#10;mess&#9;FILE&#9;file:///Users/ashraf/Documents/parkIt/app/src/main/res/layout/dialog_success_message.xml&#10;st&#9;FILE&#9;file:///Users/ashraf/Documents/parkIt/app/src/main/res/values/strings.xml" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="device.picker.selection" value="b1172a0d" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
@@ -453,10 +393,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1322" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.34765625" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.17704518" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -464,13 +405,13 @@
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Run" order="0" />
-      <window_info anchor="bottom" id="Logcat" order="1" visible="true" weight="0.29387754" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.5714286" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.36956522" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.36938775" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.36842105" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.36836734" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32959184" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
@@ -479,7 +420,7 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Android WiFi ADB" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Preview" order="6" weight="0.39148936" />
+      <window_info anchor="right" id="Preview" order="6" weight="0.3864469" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -490,13 +431,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ParkingModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="85" column="19" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -524,20 +458,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/MapWrapperLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="835">
-          <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/MapWrapperLayout.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/566707a496f4cf135e7e9d8191f5a200/jars/classes.jar!/com/google/android/gms/maps/model/MarkerOptions.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -545,35 +466,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/OnInfoWindowElemTouchListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
-          <folding>
-            <element signature="e#191#192#0" expanded="true" />
-            <element signature="e#229#230#0" expanded="true" />
-            <element signature="e#174#175#0" expanded="true" />
-            <element signature="e#199#200#0" expanded="true" />
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#260#261#0" expanded="true" />
-            <element signature="e#291#292#0" expanded="true" />
-            <element signature="e#321#322#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/OnInfoWindowElemTouchListener.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/MyInfoWindowAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
@@ -585,10 +478,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ParkingApiInterface.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_infowindow.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_info_window.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+        <state relative-caret-position="255">
+          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/half_circle_filled.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -606,104 +515,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationBody.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="125" column="47" selection-start-line="125" selection-start-column="47" selection-end-line="125" selection-end-column="47" />
+        <state relative-caret-position="285">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
-            <element signature="e#11067#11679#0" />
-            <element signature="e#11685#11802#0" />
-            <element signature="e#11808#12804#0" />
-            <element signature="e#11971#12302#0" expanded="true" />
-            <element signature="e#12301#12302#0" expanded="true" />
-            <element signature="e#12345#12579#0" expanded="true" />
-            <element signature="e#12578#12579#0" expanded="true" />
-            <element signature="e#12810#13572#0" />
-            <element signature="e#13578#13672#0" />
-            <element signature="e#13678#13747#0" />
-            <element signature="e#13753#13823#0" />
-            <element signature="e#13829#14344#0" />
-            <element signature="e#14350#14926#0" />
-            <element signature="e#14932#15648#0" />
-            <element signature="e#15131#15441#0" expanded="true" />
-            <element signature="e#15440#15441#0" expanded="true" />
-            <element signature="e#15654#16403#0" />
-            <element signature="e#16409#17372#0" />
-            <element signature="e#17379#18685#0" />
-            <element signature="e#18691#19461#0" />
-            <element signature="e#18698#18729#0" expanded="true" />
-            <element signature="e#18759#18780#0" expanded="true" />
-            <element signature="e#18817#18831#0" expanded="true" />
-            <element signature="e#18833#19079#0" expanded="true" />
-            <element signature="e#19078#19079#0" expanded="true" />
-            <element signature="e#19099#19122#0" expanded="true" />
-            <element signature="e#19124#19282#0" expanded="true" />
-            <element signature="e#19281#19282#0" expanded="true" />
-            <element signature="e#19468#20366#0" />
-            <element signature="e#21294#21474#0" expanded="true" />
-            <element signature="e#21473#21474#0" expanded="true" />
-            <element signature="e#21492#21642#0" expanded="true" />
-            <element signature="e#21641#21642#0" expanded="true" />
+            <element signature="e#191#192#0" expanded="true" />
+            <element signature="e#229#230#0" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+            <element signature="e#402#403#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ParkingModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#207#208#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_infowindow.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="55" column="51" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_info_window.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+        <state relative-caret-position="60">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_success_message.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/half_circle_filled.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_reservation_detail.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1534">
-          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        <state relative-caret-position="542">
+          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
           <folding>
-            <element signature="e#2187#2207#0" expanded="true" />
-            <element signature="e#3149#3163#0" expanded="true" />
-            <element signature="e#4017#4035#0" expanded="true" />
-            <element signature="e#4836#4850#0" expanded="true" />
-            <element signature="e#6079#6093#0" expanded="true" />
-            <element signature="e#7005#7026#0" expanded="true" />
-            <element signature="e#8934#8958#0" expanded="true" />
+            <element signature="e#1349#1394#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -711,15 +553,73 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/reservation_activity.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+        <state relative-caret-position="739">
+          <caret line="249" column="44" lean-forward="true" selection-start-line="243" selection-start-column="12" selection-end-line="249" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_with_back_btn.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="38" />
+        <state relative-caret-position="90">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_reservation_detail.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+          <folding>
+            <element signature="e#12091#12115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="335" selection-start-line="335" selection-end-line="335" />
+          <folding>
+            <element signature="e#11153#11463#0" expanded="true" />
+            <element signature="e#11462#11463#0" expanded="true" />
+            <element signature="e#16295#18901#0" />
+            <element signature="e#21750#21900#0" expanded="true" />
+            <element signature="e#21899#21900#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="147" column="33" selection-start-line="147" selection-start-column="33" selection-end-line="147" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#7556#7706#0" expanded="true" />
+            <element signature="e#7705#7706#0" expanded="true" />
+            <element signature="e#7737#8050#0" expanded="true" />
+            <element signature="e#8049#8050#0" expanded="true" />
+            <element signature="method#notificationBarSetup#0;class#ReservationDetailActivity#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ParkingApiInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
         </state>
       </provider>
     </entry>

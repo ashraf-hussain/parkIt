@@ -2,16 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#992AB7C3"
     android:orientation="vertical">
 
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="24dp"
-        android:src="@drawable/ic_tick_box" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,17 +12,34 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:gravity="center"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:src="@drawable/ic_tick_box" />
+
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:gravity="bottom"
             android:text="@string/great"
-            android:textColor="@color/colorBlack"
+            android:textColor="#5C5C5C"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -53,15 +62,15 @@
             android:textColor="@color/colorWhite"
             android:textSize="16sp" />
 
-        <Button
+        <TextView
             android:id="@+id/btn_close"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
+            android:background="@color/colorWhite"
             android:gravity="center"
             android:text="@string/close"
-            android:background="@color/colorWhite"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp" />
