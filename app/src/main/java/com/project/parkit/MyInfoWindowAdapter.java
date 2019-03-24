@@ -1,6 +1,7 @@
 package com.project.parkit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,12 +24,9 @@ class MyInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
     TextView tvTitle;
     @BindView(R.id.tv_subtitle)
     TextView tvSubtitle;
-    @BindView(R.id.tv_haha)
-    TextView tvCost;
-    @BindView(R.id.tv_max_time)
-    TextView tvMaxTime;
-    @BindView(R.id.tv_min_time)
-    TextView tvMinTime;
+    @BindView(R.id.tv_join_all)
+    TextView tvJoinAll;
+
     @BindView(R.id.btn_pay_reserve)
     Button btnPayReserve;
     private static final String TAG = MyInfoWindowAdapter.class.getName();
@@ -47,24 +45,14 @@ class MyInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         mWindow = LayoutInflater.from(context).inflate(R.layout.custom_info_window, null);
         ButterKnife.bind(this, mWindow);
 
-
-        tvSubtitle.setText(marker.getSnippet());
-
-
-        //ParkingModel infoWindowData = (ParkingModel) marker.getTag();
-
+        Log.d(TAG, "getInfoWindowTag: " + marker.getTitle());
 
         for (int i = 0; i < parkingModelList.size(); i++) {
 
-            parkingModel = parkingModelList.get(5);
-            tvTitle.setText(parkingModel.getName());
-            tvCost.setText   (parkingModel.getCostPerMinute() + "");
-            tvMaxTime.setText(parkingModel.getMaxReserveTimeMins()+"");
-            tvMinTime.setText(parkingModel.getMinReserveTimeMins()+"");
-            Log.d(TAG, "getInfoWindow: " + parkingModel.getName());
-
+            parkingModel = parkingModelList.get(i);
+            tvTitle.setText(marker.getTitle());
+            tvJoinAll.setText(marker.getSnippet());
         }
-
 
         btnPayReserve.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +62,7 @@ class MyInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         });
         return mWindow;
     }
+
 
     @Override
     public View getInfoContents(Marker marker) {

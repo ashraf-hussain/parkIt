@@ -124,7 +124,6 @@ public class MainActivity extends FragmentActivity implements
         calendar = Calendar.getInstance();
         notificationBarSetup();
         datePickerAction();
-
         connectionDetector = new ConnectionDetector(this);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -153,6 +152,7 @@ public class MainActivity extends FragmentActivity implements
         mapFragment.getMapAsync((OnMapReadyCallback) this);
 
         getLastLocation();
+
     }
 
     @Override
@@ -170,15 +170,20 @@ public class MainActivity extends FragmentActivity implements
     protected Marker createMarker(double latitude,
                                   double longitude,
                                   String title,
+                                  String costPerMin,
                                   int minTime,
                                   int maxTime,
-                                  String costPerMin,
                                   int iconResID) {
 
         return mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude, longitude))
                 .anchor(0.5f, 0.5f)
                 .title(title)
+                .snippet(costPerMin
+                        + "                " +
+                        maxTime
+                        + "                " +
+                        minTime)
                 .icon(bitmapDescriptorFromVector(this,
                         iconResID)));
     }
@@ -361,7 +366,7 @@ public class MainActivity extends FragmentActivity implements
 
                 if (!connectionDetector.isConnected()) {
                     noInternetDialog();
-                }else {
+                } else {
                     searchAction();
                 }
 
@@ -456,12 +461,10 @@ public class MainActivity extends FragmentActivity implements
                     createMarker(Double.parseDouble(parkingModelList.get(i).getLat()),
                             Double.parseDouble(parkingModelList.get(i).getLng()),
                             parkingModelList.get(i).getName(),
+                            parkingModelList.get(i).getCostPerMinute(),
                             parkingModelList.get(i).getMinReserveTimeMins(),
                             parkingModelList.get(i).getMaxReserveTimeMins(),
-                            parkingModelList.get(i).getCostPerMinute(),
                             R.drawable.ic_radio_button_checked_black_24dp);
-
-                    parkingModel.setName("sadas");
 
 
                     Log.d(TAG, parkingModelList.get(i).getCostPerMinute() + "GOT" +
@@ -485,4 +488,6 @@ public class MainActivity extends FragmentActivity implements
             }
         });
     }
+
+
 }
