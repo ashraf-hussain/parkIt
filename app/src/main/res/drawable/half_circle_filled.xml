@@ -16,8 +16,8 @@
     <stroke
         android:width="0dp" />
     <gradient
-        android:startColor="@color/colorPrimaryDark"
-        android:endColor= "@color/colorPrimary"
+        android:startColor="#ffffff"
+        android:endColor= "#ffffff"
         android:angle="90" />
 
 </shape>
