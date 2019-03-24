@@ -1,8 +1,10 @@
 package com.project.parkit;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -25,6 +27,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -47,6 +50,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.project.parkit.common.AppConstant;
 import com.project.parkit.common.ConnectionDetector;
 import com.project.parkit.common.SetupRetrofit;
 
@@ -66,7 +70,7 @@ import retrofit2.Retrofit;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class MainActivity extends FragmentActivity implements
-        OnMapReadyCallback, LocationListener {
+        OnMapReadyCallback, LocationListener, GoogleMap.OnInfoWindowClickListener {
 
     private static final int REQUEST_LOCATION = 101;
     LocationManager locationManager;
@@ -126,6 +130,7 @@ public class MainActivity extends FragmentActivity implements
         datePickerAction();
         connectionDetector = new ConnectionDetector(this);
 
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
 
@@ -155,6 +160,7 @@ public class MainActivity extends FragmentActivity implements
 
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -164,6 +170,7 @@ public class MainActivity extends FragmentActivity implements
         mMap.getUiSettings().setAllGesturesEnabled(true);
         mMap.setTrafficEnabled(true);
         mMap.setMinZoomPreference(5);
+        mMap.setOnInfoWindowClickListener(this);
 
     }
 
@@ -171,19 +178,24 @@ public class MainActivity extends FragmentActivity implements
                                   double longitude,
                                   String title,
                                   String costPerMin,
+                                  int id,
                                   int minTime,
                                   int maxTime,
+                                  boolean isReserved,
                                   int iconResID) {
 
         return mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude, longitude))
                 .anchor(0.5f, 0.5f)
                 .title(title)
+                .zIndex(id)
                 .snippet(costPerMin
                         + "                " +
-                        maxTime
+                        minTime
                         + "                " +
-                        minTime)
+                        maxTime
+                        + "     " +
+                        isReserved)
                 .icon(bitmapDescriptorFromVector(this,
                         iconResID)));
     }
@@ -268,6 +280,7 @@ public class MainActivity extends FragmentActivity implements
 
     }
 
+    //User's last location
     private void getLastLocation() {
         if (ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
@@ -395,6 +408,7 @@ public class MainActivity extends FragmentActivity implements
         }
     }
 
+    //No internet Dialog
     private void noInternetDialog() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle(R.string.no_internet_connection)
@@ -411,7 +425,7 @@ public class MainActivity extends FragmentActivity implements
         }).setCancelable(false).show();
     }
 
-
+    //Search Action
     private void searchAction() {
         progressBar.setVisibility(View.VISIBLE);
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
@@ -434,15 +448,15 @@ public class MainActivity extends FragmentActivity implements
 
     }
 
-
+    //Receiving Search Data
     private void getSearchData() {
         progressBar.setVisibility(View.VISIBLE);
 
         SetupRetrofit setupRetrofit = new SetupRetrofit();
         Retrofit retrofit = setupRetrofit.getRetrofit();
 
-        ParkingApiInterface musicApiInterface = retrofit.create(ParkingApiInterface.class);
-        musicApiInterface.getSearchData(Double.toString(location.getLatitude()),
+        ParkingApiInterface parkingApiInterface = retrofit.create(ParkingApiInterface.class);
+        parkingApiInterface.getSearchData(Double.toString(location.getLatitude()),
                 Double.toString(location.getLongitude())).enqueue(new Callback<List<ParkingModel>>() {
 
             @Override
@@ -462,8 +476,10 @@ public class MainActivity extends FragmentActivity implements
                             Double.parseDouble(parkingModelList.get(i).getLng()),
                             parkingModelList.get(i).getName(),
                             parkingModelList.get(i).getCostPerMinute(),
+                            parkingModelList.get(i).getId(),
                             parkingModelList.get(i).getMinReserveTimeMins(),
                             parkingModelList.get(i).getMaxReserveTimeMins(),
+                            parkingModelList.get(i).getIsReserved(),
                             R.drawable.ic_radio_button_checked_black_24dp);
 
 
@@ -473,6 +489,7 @@ public class MainActivity extends FragmentActivity implements
                             MyInfoWindowAdapter(MainActivity.this, parkingModelList);
                     mMap.setInfoWindowAdapter(customInfoWindow);
                     progressBar.setVisibility(View.GONE);
+
                 }
 
             }
@@ -489,5 +506,93 @@ public class MainActivity extends FragmentActivity implements
         });
     }
 
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        Toast.makeText(this, "Info window clicked",
+                Toast.LENGTH_SHORT).show();
+
+        ReservationBody reservationBody = new ReservationBody(15);
+
+        Toast.makeText(this, (int) marker.getZIndex() + "", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onInfoWindowClick: " + marker.getZIndex() + "");
+
+        reserveSpot(reservationBody, (int) marker.getZIndex());
+
+    }
+
+    private void reserveSpot(ReservationBody reservationBody, int markerId) {
+        progressBar.setVisibility(View.VISIBLE);
+
+        SetupRetrofit setupRetrofit = new SetupRetrofit();
+        Retrofit retrofit = setupRetrofit.getRetrofit();
+
+        ParkingApiInterface parkingApiInterface = retrofit.create(ParkingApiInterface.class);
+        parkingApiInterface.reserveSpot(reservationBody, markerId).enqueue(new Callback<ReservationBody>() {
+            @Override
+            public void onResponse(Call<ReservationBody> call, Response<ReservationBody> response) {
+                Log.d(TAG, "onResponseReserve: " + response.code() + "");
+                Log.d(TAG, "onResponseReserveUrl: " + response.raw().request().url() + "");
+                progressBar.setVisibility(View.GONE);
+
+                if (response.code() == 200) {
+
+                }
+                if (response.code() == 400) {
+
+                    Toast.makeText(MainActivity.this, "Minimum time is more the reservation", Toast.LENGTH_SHORT).show();
+
+                }
+                if (response.code() == 404) {
+                    Toast.makeText(MainActivity.this, "Page not found", Toast.LENGTH_SHORT).show();
+                } else {
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ReservationBody> call, Throwable t) {
+                Log.d(TAG, "onFailureReserve: " + t);
+                progressBar.setVisibility(View.GONE);
+
+            }
+        });
+    }
+
+
+    public void showSuccessDialog(final int id) {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_success_message);
+
+
+        Button btnCheck = (Button) dialog.findViewById(R.id.btn_check);
+
+        Button btnClose = (Button) dialog.findViewById(R.id.btn_close);
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ReservationDetailActivity.class);
+                intent.putExtra(AppConstant.RESERVATION_DETAIL, id);
+                startActivity(intent);
+            }
+        });
+
+        btnCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.setCancelable(false);
+        dialog.show();
+
+    }
 
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
@@ -48,8 +49,17 @@ class MyInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         Log.d(TAG, "getInfoWindowTag: " + marker.getTitle());
 
         for (int i = 0; i < parkingModelList.size(); i++) {
+//            if (!parkingModelList.get(i).getIsReserved()){
+//                Log.d(TAG, "getInfoWindowReserved: "+parkingModelList.get(i).getIsReserved() );
+//                marker.remove();
+//            }else {
+//                Log.d(TAG, "getInfoWindowReservedElse: "+parkingModelList.get(i).getIsReserved() );
+//
+//            }
 
             parkingModel = parkingModelList.get(i);
+            marker.getZIndex();
+            Log.d(TAG, "getInfoWindowIndex: "+marker.getZIndex()+"");
             tvTitle.setText(marker.getTitle());
             tvJoinAll.setText(marker.getSnippet());
         }
@@ -60,8 +70,12 @@ class MyInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
             }
         });
+
         return mWindow;
     }
+
+
+
 
 
     @Override

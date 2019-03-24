@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
+    android:background="#992AB7C3"
     android:orientation="vertical">
 
 
@@ -53,7 +53,7 @@
             android:textColor="@color/colorWhite"
             android:textSize="16sp" />
 
-        <TextView
+        <Button
             android:id="@+id/btn_close"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -61,6 +61,7 @@
             android:layout_marginBottom="16dp"
             android:gravity="center"
             android:text="@string/close"
+            android:background="@color/colorWhite"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp" />

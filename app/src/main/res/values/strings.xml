@@ -28,4 +28,8 @@
     <string name="internet_msg">Please connect to internet for using the application.</string>
     <string name="retry">RETRY</string>
     <string name="close_all_caps">CLOSE</string>
+    <string name="pay_to_reserve">Pay to Reserve</string>
+    <string name="open_spots">Open Spots</string>
+    <string name="cost">Cost</string>
+    <string name="distance">Distance</string>
 </resources>
