@@ -22,6 +22,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -145,12 +146,13 @@ public class DashboardActivity extends AppCompatActivity implements
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     REQUEST_LOCATION);
-            Toast.makeText(this, "Not Granted", Toast.LENGTH_SHORT).show();
+            snackBar("Location permission not granted");
 
 
         } else {
             // permission has been granted, continue as usual
-            Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show();
+            snackBar("Location permission granted");
+
         }
 
 
@@ -225,6 +227,7 @@ public class DashboardActivity extends AppCompatActivity implements
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
                 0, 0, this);
         onLocationChanged(location);
+        getLastLocation();
     }
 
     @Override
@@ -237,14 +240,14 @@ public class DashboardActivity extends AppCompatActivity implements
     //Checks GPS status
     private void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Your GPS seems to be disabled, do you want to enable it?")
+        builder.setMessage("Application requires GPS location to find the parking spots.")
                 .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Go to settings", new DialogInterface.OnClickListener() {
                     public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                         startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                     }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                         dialog.cancel();
                     }
@@ -263,15 +266,16 @@ public class DashboardActivity extends AppCompatActivity implements
         if (location != null) {
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
-            Toast.makeText(DashboardActivity.this, "latitude:" + latitude + " longitude:"
-                    + longitude, LENGTH_SHORT).show();
+
+            snackBar("latitude:" + latitude + " longitude:"
+                    + longitude);
             lat = String.valueOf(latitude);
             lng = String.valueOf(longitude);
             Log.d(TAG, "latitude:" + latitude + " longitude:" + longitude);
 
 
         } else {
-            Toast.makeText(DashboardActivity.this, "Null", LENGTH_SHORT).show();
+            snackBar("Lat Lng is null :(");
         }
     }
 
@@ -282,12 +286,13 @@ public class DashboardActivity extends AppCompatActivity implements
 
     @Override
     public void onProviderEnabled(String provider) {
-        Toast.makeText(this, "Enabled", Toast.LENGTH_SHORT).show();
+        snackBar("GPS enabled");
     }
 
     @Override
     public void onProviderDisabled(String provider) {
-        Toast.makeText(this, "Disabled", Toast.LENGTH_SHORT).show();
+        snackBar("GPS disabled");
+
 
     }
 
@@ -335,13 +340,13 @@ public class DashboardActivity extends AppCompatActivity implements
                                           int minute) {
                         String time;
                         if (hourOfDay >= 0 && hourOfDay < 12) {
-                            time = hourOfDay + " : " + minute + " AM";
+                            time = hourOfDay + ":" + minute + " AM";
                         } else {
                             if (hourOfDay == 12) {
-                                time = hourOfDay + " : " + minute + " PM";
+                                time = hourOfDay + ":" + minute + " PM";
                             } else {
                                 hourOfDay = hourOfDay - 12;
-                                time = hourOfDay + " : " + minute + " PM";
+                                time = hourOfDay + ":" + minute + " PM";
                             }
                         }
 
@@ -400,9 +405,11 @@ public class DashboardActivity extends AppCompatActivity implements
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_location:
-
-                searchAction();
-
+                if (location != null) {
+                    searchAction();
+                } else {
+                    snackBar("Lat lng value not located try restarting the app!");
+                }
                 break;
             case R.id.ll_date:
                 new DatePickerDialog(DashboardActivity.this, date, calendar
@@ -433,7 +440,6 @@ public class DashboardActivity extends AppCompatActivity implements
 
                 } else {
                     getSearchData();
-                    sbTime.setProgress(0);
                     cvSearch.setVisibility(View.GONE);
                 }
                 break;
@@ -539,7 +545,7 @@ public class DashboardActivity extends AppCompatActivity implements
             public void onFailure(Call<List<ParkingModel>> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage());
 
-                Toast.makeText(DashboardActivity.this, "Sth wrong", Toast.LENGTH_SHORT).show();
+                snackBar("Sth Wrong ");
                 progressBar.setVisibility(View.GONE);
 
 
@@ -550,14 +556,12 @@ public class DashboardActivity extends AppCompatActivity implements
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        Toast.makeText(this, "Info window clicked",
-                Toast.LENGTH_SHORT).show();
 
         ReservationBody reservationBody = new ReservationBody(Integer.parseInt(seekbarValue));
 
-        Toast.makeText(this, (int) marker.getZIndex() + "", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onInfoWindowClick: " + marker.getZIndex() + "");
 
+        snackBar(marker.getZIndex() + "");
         reserveSpot(reservationBody, (int) marker.getZIndex());
 
     }
@@ -581,13 +585,12 @@ public class DashboardActivity extends AppCompatActivity implements
                 }
                 if (response.code() == 400) {
 
-
-                    Toast.makeText(DashboardActivity.this, "Reservation time is less than minimum required time", Toast.LENGTH_SHORT).show();
-                    // Toast.makeText(DashboardActivity.this, "Location already reserved. Please try later.", Toast.LENGTH_SHORT).show();
+                    snackBar("Reservation time is less than minimum required time");
 
                 }
                 if (response.code() == 404) {
-                    Toast.makeText(DashboardActivity.this, "Page not found", Toast.LENGTH_SHORT).show();
+
+                    snackBar("Page not found");
                 } else {
 
                 }
@@ -686,6 +689,16 @@ public class DashboardActivity extends AppCompatActivity implements
 
             }
         });
+
+    }
+
+
+    private void snackBar(String message) {
+        Snackbar snackbar = Snackbar
+                .make(cvSearch, message, Snackbar.LENGTH_SHORT);
+        View sbView = snackbar.getView();
+        sbView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        snackbar.show();
 
     }
 

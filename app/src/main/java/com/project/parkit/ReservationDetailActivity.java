@@ -199,7 +199,7 @@ public class ReservationDetailActivity extends BaseActivity {
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReservationDetailActivity.this, ReservationDetailActivity.class);
+                Intent intent = new Intent(ReservationDetailActivity.this, MainActivity.class);
                 intent.putExtra(AppConstant.RESERVATION_DETAIL, id);
                 startActivity(intent);
                 finish();
@@ -336,6 +336,8 @@ public class ReservationDetailActivity extends BaseActivity {
         });
 
     }
+
+
 
 
 }
