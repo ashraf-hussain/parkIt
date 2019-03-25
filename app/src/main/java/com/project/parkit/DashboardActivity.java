@@ -433,10 +433,6 @@ public class DashboardActivity extends AppCompatActivity implements
 
                 } else {
                     getSearchData();
-                    tvReserveSelectionTime.setText("");
-                    tvLocation.setText("");
-                    tvTime.setText("");
-                    tvDate.setText("");
                     sbTime.setProgress(0);
                     cvSearch.setVisibility(View.GONE);
                 }
