@@ -15,9 +15,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/DashboardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/DashboardActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,13 +64,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="10" />
-          <entry key="java" value="3811" />
+          <entry key="java" value="3941" />
           <entry key="xml" value="1469" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3811" />
+          <entry key="JAVA" value="3941" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="XML" value="1469" />
         </counts>
@@ -82,8 +82,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/DashboardActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="435" column="18" selection-start-line="435" selection-start-column="18" selection-end-line="435" selection-end-column="18" />
+            <state relative-caret-position="903">
+              <caret line="702" column="5" selection-start-line="702" selection-start-column="5" selection-end-line="702" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -111,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3945">
-              <caret line="302" column="70" selection-start-line="302" selection-start-column="70" selection-end-line="302" selection-end-column="70" />
+            <state relative-caret-position="798">
+              <caret line="339" selection-start-line="339" selection-end-line="339" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#notificationBarSetup#0;class#ReservationDetailActivity#0" />
@@ -194,18 +194,19 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/navigation.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/progress.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_reservation_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/reservation_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-v21/reservation_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/project/parkit/DashboardActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="height" value="966" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -420,7 +421,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.17704518" />
@@ -522,6 +522,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#191#192#0" expanded="true" />
+            <element signature="e#229#230#0" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+            <element signature="e#402#403#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -619,13 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/DashboardActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="435" column="18" selection-start-line="435" selection-start-column="18" selection-end-line="435" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-v21/reservation_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3810">
@@ -642,17 +641,6 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3945">
-          <caret line="302" column="70" selection-start-line="302" selection-start-column="70" selection-end-line="302" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#notificationBarSetup#0;class#ReservationDetailActivity#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_dashbord.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -668,6 +656,24 @@
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/ReservationDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="339" selection-start-line="339" selection-end-line="339" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#notificationBarSetup#0;class#ReservationDetailActivity#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/project/parkit/DashboardActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="702" column="5" selection-start-line="702" selection-start-column="5" selection-end-line="702" selection-end-column="5" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
