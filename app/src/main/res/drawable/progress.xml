@@ -19,7 +19,7 @@
             android:type="sweep"
             android:useLevel="false"
             android:startColor="#00BCD4"
-            android:endColor="#424141"
+            android:endColor="#E6E0E0"
             android:angle="0"/>
 
     </shape>

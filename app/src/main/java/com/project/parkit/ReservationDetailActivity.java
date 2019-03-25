@@ -31,7 +31,6 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,8 +60,8 @@ public class ReservationDetailActivity extends BaseActivity {
     LinearLayout llTime;
     @BindView(R.id.tv_reserve_time)
     TextView tvReserveTime;
-    @BindView(R.id.tv_reserve_remaining)
-    TextView tvReserveRemaining;
+    @BindView(R.id.tv_reserve_selection_time)
+    TextView tvReserveSelectionTime;
     @BindView(R.id.sb_time)
     SeekBar sbTime;
     @BindView(R.id.tv_cost_per_min)
@@ -75,7 +74,7 @@ public class ReservationDetailActivity extends BaseActivity {
     private Calendar calendar;
     private int mHour, mMinute;
     private DatePickerDialog.OnDateSetListener date;
-    private String reserveTime, reserveDate;
+    String seekbarValue;
 
     private static final String TAG = ReservationDetailActivity.class.getName();
 
@@ -88,7 +87,7 @@ public class ReservationDetailActivity extends BaseActivity {
     @Override
     protected void init() {
         calendar = Calendar.getInstance();
-
+        sbTime.setProgress(0);
         notificationBarSetup();
         datePickerAction();
         Bundle bundle = getIntent().getExtras();
@@ -96,8 +95,10 @@ public class ReservationDetailActivity extends BaseActivity {
             reservationId = (int) bundle.getInt(AppConstant.RESERVATION_DETAIL, 0);
             Log.d(TAG, "RID: " + reservationId + "");
             reserveSpotDetail(reservationId);
+            tvDate.setText(DashboardActivity.reserveDate);
+            tvMaxTime.setText(DashboardActivity.reserveDate);
         }
-
+        seekbarAction();
     }
 
 
@@ -121,7 +122,7 @@ public class ReservationDetailActivity extends BaseActivity {
                     tvCostPerMin.setText("$" + response.body().getCostPerMinute() + "/min");
                     tvCost.setText(response.body().getCostPerMinute() + "/min");
                     tvTitle.setText(response.body().getName());
-                    tvReserveRemaining.setText(response.body().getMaxReserveTimeMins() + "" + " min");
+                    tvReserveSelectionTime.setText(response.body().getMaxReserveTimeMins() + "" + " min");
                 }
 
 
@@ -160,7 +161,7 @@ public class ReservationDetailActivity extends BaseActivity {
 
                     // Toast.makeText(MainActivity.this, "Minimum time is more the reservation", Toast.LENGTH_SHORT).show();
                     Toast.makeText(ReservationDetailActivity.this,
-                            "Location already reserved. Please try later.",
+                            "Reservation time is less than minimum required time.",
                             Toast.LENGTH_SHORT).show();
 
                 }
@@ -235,13 +236,13 @@ public class ReservationDetailActivity extends BaseActivity {
 
                         String time;
                         if (hourOfDay >= 0 && hourOfDay < 12) {
-                            time = hourOfDay + " : " + minute + " AM";
+                            time = hourOfDay + ":" + minute + " AM";
                         } else {
                             if (hourOfDay == 12) {
-                                time = hourOfDay + " : " + minute + " PM";
+                                time = hourOfDay + ":" + minute + " PM";
                             } else {
                                 hourOfDay = hourOfDay - 12;
-                                time = hourOfDay + " : " + minute + " PM";
+                                time = hourOfDay + ":" + minute + " PM";
                             }
                         }
 
@@ -307,10 +308,35 @@ public class ReservationDetailActivity extends BaseActivity {
                 timePickerAction();
                 break;
             case R.id.btn_pay_to_reserve:
-                ReservationBody reservationBody = new ReservationBody(36);
+                ReservationBody reservationBody = new ReservationBody(Integer.parseInt(seekbarValue));
                 updateReserveSpot(reservationBody, reservationId);
                 break;
         }
     }
+
+    public  void seekbarAction(){
+        sbTime .setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+
+                seekbarValue = String.valueOf(i);
+
+                tvReserveSelectionTime.setText(seekbarValue+"mins");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+    }
+
+
 }
 

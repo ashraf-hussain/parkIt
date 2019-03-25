@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="55dp"
     android:orientation="vertical">
 
     <include layout="@layout/toolbar" />
@@ -54,7 +55,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_location_on_black_24dp" />
+                                app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
                             <LinearLayout
                                 android:id="@+id/ll_location"
@@ -67,7 +68,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="8dp"
-                                    android:text="@string/get_current_location"
+                                    android:hint="@string/get_current_location"
                                     android:textColor="@color/colorGrey"
                                     android:textSize="16sp" />
 
@@ -97,7 +98,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/ic_date_range_black_24dp" />
+                                    app:srcCompat="@drawable/ic_date_range_black_24dp" />
 
                                 <LinearLayout
                                     android:id="@+id/ll_date"
@@ -111,7 +112,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_margin="8dp"
-                                        android:text="@string/date"
+                                        android:hint="@string/date"
                                         android:textColor="@color/colorGrey"
                                         android:textSize="16sp" />
 
@@ -127,7 +128,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/ic_access_time_black_24dp" />
+                                    app:srcCompat="@drawable/ic_access_time_black_24dp" />
 
                                 <LinearLayout
                                     android:id="@+id/ll_time"
@@ -141,7 +142,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_margin="8dp"
-                                        android:text="@string/time"
+                                        android:hint="@string/time"
                                         android:textColor="@color/colorGrey"
                                         android:textSize="16sp" />
 
@@ -171,20 +172,19 @@
                                     android:textSize="16sp" />
 
                                 <TextView
-                                    android:id="@+id/tv_reserve_time"
+                                    android:id="@+id/tv_reserve_selection_time"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="45 min"
-                                    android:textColor="@color/colorGrey"
+                                    android:textColor="@color/colorAccent"
                                     android:textSize="16sp" />
 
                                 <TextView
-                                    android:id="@+id/tv_reserve_remaining"
+                                    android:id="@+id/tv_reserve_time"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:gravity="end"
-                                    android:text=" -- min"
+                                    android:text=""
                                     android:textColor="@color/colorGrey"
                                     android:textSize="16sp" />
 
@@ -201,7 +201,6 @@
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginBottom="8dp"
                                 android:background="@drawable/button_background"
                                 android:text="@string/search"
                                 android:textAllCaps="false"
@@ -234,11 +233,12 @@
                     android:id="@+id/btn_search_down"
                     android:layout_width="57dp"
                     android:layout_height="30dp"
+                    android:elevation="16dp"
                     android:layout_gravity="center"
                     android:background="@drawable/half_circle_filled"
                     android:foregroundGravity="center"
                     android:padding="8dp"
-                    android:src="@drawable/ic_search_black_24dp" />
+                    app:srcCompat="@drawable/ic_search_black_24dp" />
             </LinearLayout>
 
             <ProgressBar

@@ -11,7 +11,7 @@
     <string name="reserve_for">Reserve for :</string>
     <string name="search">Search</string>
     <string name="time">Time</string>
-    <string name="parking">Parking Station</string>
+    <string name="parking">Parking Spot</string>
     <string name="pay_and_reserve">Pay and Reserve</string>
     <string name="more">More</string>
     <string name="great">Great!</string>
@@ -33,4 +33,11 @@
     <string name="cost">Cost</string>
     <string name="distance">Distance</string>
     <string name="parking_spot_info">Parking spot info</string>
+    <string name="title_activity_dashbord">Dashbord</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="my_car">My Car</string>
+    <string name="reservation">Reservation</string>
+    <string name="find">Find</string>
 </resources>
