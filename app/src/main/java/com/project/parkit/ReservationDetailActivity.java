@@ -4,9 +4,11 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -160,16 +162,11 @@ public class ReservationDetailActivity extends BaseActivity {
 
 
                     // Toast.makeText(MainActivity.this, "Minimum time is more the reservation", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(ReservationDetailActivity.this,
-                            "Reservation time is less than minimum required time.",
-                            Toast.LENGTH_SHORT).show();
+                    snackBar("Reservation time is less than minimum required time.");
 
                 }
                 if (response.code() == 404) {
-                    Toast.makeText(ReservationDetailActivity.this,
-                            "Page not found", Toast.LENGTH_SHORT).show();
-                } else {
-
+                    snackBar("Page not found");
                 }
             }
 
@@ -199,7 +196,7 @@ public class ReservationDetailActivity extends BaseActivity {
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReservationDetailActivity.this, MainActivity.class);
+                Intent intent = new Intent(ReservationDetailActivity.this, ReservationDetailActivity.class);
                 intent.putExtra(AppConstant.RESERVATION_DETAIL, id);
                 startActivity(intent);
                 finish();
@@ -295,7 +292,7 @@ public class ReservationDetailActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.toolbar:
-                Intent intent = new Intent(ReservationDetailActivity.this, MainActivity.class);
+                Intent intent = new Intent(ReservationDetailActivity.this, DashboardActivity.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -308,27 +305,37 @@ public class ReservationDetailActivity extends BaseActivity {
                 timePickerAction();
                 break;
             case R.id.btn_pay_to_reserve:
-                ReservationBody reservationBody = new ReservationBody(Integer.parseInt(seekbarValue));
-                updateReserveSpot(reservationBody, reservationId);
+
+                if (!seekbarValue.equalsIgnoreCase("")) {
+                    Log.d(TAG, "onViewClicked: " +seekbarValue);
+                    ReservationBody reservationBody = new ReservationBody(Integer.parseInt(seekbarValue));
+                    updateReserveSpot(reservationBody, reservationId);
+                } else {
+                    tvReserveSelectionTime.setTextColor(Color.RED);
+                    tvReserveSelectionTime.setText("Required !");
+
+
+                }
                 break;
         }
     }
 
-    public  void seekbarAction(){
-        sbTime .setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+    public void seekbarAction() {
+        sbTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
                 seekbarValue = String.valueOf(i);
 
-                tvReserveSelectionTime.setText(seekbarValue+"mins");
+                tvReserveSelectionTime.setText(seekbarValue + "mins");
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
 
             }
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
@@ -337,7 +344,14 @@ public class ReservationDetailActivity extends BaseActivity {
 
     }
 
+    private void snackBar(String message) {
+        Snackbar snackbar = Snackbar
+                .make(llDate, message, Snackbar.LENGTH_SHORT);
+        View sbView = snackbar.getView();
+        sbView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        snackbar.show();
 
+    }
 
 
 }

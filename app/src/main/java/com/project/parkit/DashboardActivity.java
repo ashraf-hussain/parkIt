@@ -630,6 +630,7 @@ public class DashboardActivity extends AppCompatActivity implements
                 Log.d(TAG, "onClick: " + id + "");
                 intent.putExtras(bundle);
                 startActivity(intent);
+                dialog.dismiss();
             }
         });
 
